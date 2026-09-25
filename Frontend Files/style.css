@@ -1,0 +1,1355 @@
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #050505;
+    color: #F5F5F5;
+    line-height: 1.7;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --bg: #050505;
+    --surface: #0D0D0D;
+    --surface-light: #151515;
+
+    --accent: #FF3333;
+    --accent-light: #E63946;
+    --accent-dark: #8B1111;
+
+    --text: #F5F5F5;
+    --muted: #999999;
+    --border: #292929;
+}
+
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5, 5, 5, 0.92);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 1000;
+}
+
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    letter-spacing: -1px;
+}
+
+
+.logo span {
+    color: var(--accent);
+}
+
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+
+.navLinks a {
+    position: relative;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    color: var(--muted);
+
+    transition: 0.3s ease;
+}
+
+
+.navLinks a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: 0.3s ease;
+}
+
+
+.navLinks a:hover {
+    color: var(--text);
+}
+
+
+.navLinks a:hover::after {
+    width: 100%;
+}
+
+
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menuButton {
+    display: none;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    padding: 5px 10px;
+
+    z-index: 1001;
+}
+
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section {
+    padding: 120px 7%;
+}
+
+
+.sectionHeading {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 60px;
+}
+
+
+.sectionHeading span,
+.toolsHeading span {
+    color: var(--accent);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.sectionHeading h2,
+.toolsHeading h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(32px, 4vw, 52px);
+
+    font-weight: 600;
+
+    letter-spacing: -2px;
+}
+
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home {
+    min-height: 100vh;
+
+    padding: 120px 7% 80px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.homeContent {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+
+.homeText {
+    flex: 1;
+}
+
+
+.homeSmallTitle {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--accent);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.homeText h1 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(50px, 7vw, 100px);
+
+    line-height: 0.95;
+
+    font-weight: 700;
+
+    letter-spacing: -5px;
+
+    max-width: 800px;
+}
+
+
+.socialLinks {
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+
+.socialLinks a {
+    color: var(--muted);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+
+.socialLinks a:hover {
+    color: var(--accent);
+
+    transform: translateY(-3px);
+}
+
+
+
+/* =========================================================
+   HOME IMAGE
+========================================================= */
+
+.homeImage {
+    position: relative;
+
+    width: 360px;
+    height: 460px;
+
+    flex-shrink: 0;
+}
+
+
+.homeImage::before {
+    content: "";
+
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    width: 100%;
+    height: 100%;
+
+    border: 2px solid var(--accent);
+
+    z-index: 0;
+}
+
+
+.homeImage img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    position: relative;
+
+    z-index: 1;
+
+    filter: none;
+
+    transition: 0.5s ease;
+}
+
+
+.homeImage:hover img {
+    transform: translate(-5px, -5px);
+
+    filter: grayscale(0%);
+}
+
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.aboutContent {
+    max-width: 950px;
+}
+
+
+.aboutContent p {
+    color: var(--muted);
+
+    font-size: 17px;
+
+    margin-bottom: 28px;
+}
+
+
+.aboutContent p:last-child {
+    margin-bottom: 0;
+}
+
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills {
+    background: var(--bg);
+}
+
+
+.skillsGrid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.skillCard {
+    position: relative;
+
+    padding: 35px;
+
+    min-height: 240px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    transition: 0.4s ease;
+
+    overflow: hidden;
+}
+
+
+.skillCard::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: var(--accent);
+
+    transition: 0.4s ease;
+}
+
+
+.skillCard:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--accent);
+}
+
+
+.skillCard:hover::before {
+    width: 100%;
+}
+
+
+.skillNumber {
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: var(--accent);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.skillCard h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 22px;
+
+    margin-bottom: 15px;
+}
+
+
+.skillCard p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+
+/* =========================================================
+   TOOLS SECTION
+========================================================= */
+
+.toolsSection {
+    margin-top: 110px;
+}
+
+
+.toolsHeading {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 45px;
+}
+
+
+.toolsGrid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 20px;
+}
+
+
+.toolCard {
+    min-height: 170px;
+
+    padding: 30px 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 18px;
+
+    transition: 0.4s ease;
+}
+
+
+.toolCard:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--accent);
+
+    background: var(--surface-light);
+}
+
+
+.toolCard i {
+    font-size: 48px;
+
+    color: var(--text);
+
+    transition: 0.3s ease;
+}
+
+
+.toolCard:hover i {
+    color: var(--accent);
+
+    transform: scale(1.08);
+}
+
+
+.toolCard h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+
+/* =========================================================
+   TEXT LOGOS
+========================================================= */
+
+.textLogo {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    transition: 0.3s ease;
+}
+
+
+.vercelLogo {
+    font-size: 45px;
+}
+
+
+.netlifyLogo {
+    font-size: 48px;
+
+    font-weight: 800;
+}
+
+
+.apiLogo,
+.aiLogo,
+.promptLogo {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+
+    color: var(--accent);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-weight: 700;
+
+    font-size: 17px;
+}
+
+
+.promptLogo {
+    font-size: 20px;
+}
+
+
+.toolCard:hover .textLogo,
+.toolCard:hover .apiLogo,
+.toolCard:hover .aiLogo,
+.toolCard:hover .promptLogo {
+    color: var(--accent);
+
+    transform: scale(1.08);
+}
+
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experienceGrid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.experienceCard {
+    padding: 35px;
+
+    min-height: 330px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    transition: 0.4s ease;
+}
+
+
+.experienceCard:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--accent);
+}
+
+
+.experienceNumber {
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: var(--accent);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.experienceCard h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 28px;
+
+    margin-bottom: 7px;
+}
+
+
+.experienceCard h4 {
+    color: var(--accent-light);
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+
+.experienceDuration {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    padding: 5px 12px;
+
+    border: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.experienceCard p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects {
+    background: var(--surface);
+}
+
+
+.projectsGrid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.projectCard {
+    padding: 35px;
+
+    min-height: 390px;
+
+    background: var(--bg);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition: 0.4s ease;
+}
+
+
+.projectCard:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--accent);
+}
+
+
+.projectNumber {
+    color: var(--accent);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+
+.projectCard h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+
+.projectTech {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+}
+
+
+.projectTech span {
+    padding: 5px 10px;
+
+    border: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.projectCard p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 30px;
+}
+
+
+.projectLink {
+    margin-top: auto;
+
+    color: var(--accent);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+
+.projectLink:hover {
+    letter-spacing: 1px;
+}
+
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contactGrid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+}
+
+
+.contactInfo h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 36px;
+
+    margin-bottom: 45px;
+}
+
+
+.contactItem {
+    padding: 20px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.contactItem span {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.contactItem strong,
+.contactItem a {
+    font-size: 15px;
+
+    word-break: break-word;
+}
+
+
+.contactItem a {
+    color: var(--accent);
+
+    transition: 0.3s ease;
+}
+
+
+.contactItem a:hover {
+    color: var(--accent-light);
+}
+
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+.contactForm {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.contactForm label {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+
+.contactForm input,
+.contactForm textarea {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+    border-color: var(--accent);
+}
+
+
+.contactForm textarea {
+    height: 180px;
+
+    min-height: 180px;
+
+    max-height: 180px;
+
+    resize: none;
+}
+
+
+.contactForm button {
+    margin-top: 15px;
+
+    padding: 15px 25px;
+
+    border: 1px solid var(--accent);
+
+    background: var(--accent);
+
+    color: #050505;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.contactForm button:hover {
+    background: transparent;
+
+    color: var(--accent);
+}
+
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 35px 7%;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+footer div:first-child {
+    color: var(--text);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-weight: 600;
+}
+
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .homeContent {
+        gap: 50px;
+    }
+
+
+    .homeImage {
+        width: 320px;
+        height: 420px;
+    }
+
+
+    .skillsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .toolsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .experienceGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .projectsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        position: fixed;
+    }
+
+
+    .menuButton {
+        display: block;
+
+        position: relative;
+
+        z-index: 1001;
+    }
+
+
+    .navLinks {
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px 7%;
+
+        background: #080808;
+
+        border-bottom: 1px solid var(--border);
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+        z-index: 1000;
+    }
+
+
+    .navLinks.active {
+        display: flex;
+    }
+
+
+    .navLinks a {
+        font-size: 16px;
+    }
+
+
+    .home {
+        padding-top: 130px;
+    }
+
+
+    .homeContent {
+        flex-direction: column-reverse;
+
+        align-items: flex-start;
+    }
+
+
+    .homeImage {
+        width: 300px;
+        height: 380px;
+    }
+
+
+    .homeText h1 {
+        font-size: clamp(50px, 10vw, 80px);
+    }
+
+
+    .toolsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .contactGrid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 68px;
+
+        padding: 0 5%;
+    }
+
+
+    .navLinks {
+        top: 68px;
+
+        padding: 25px 5%;
+    }
+
+
+    .section {
+        padding: 90px 5%;
+    }
+
+
+    .home {
+        padding: 110px 5% 70px;
+    }
+
+
+    .homeImage {
+        width: 250px;
+        height: 320px;
+    }
+
+
+    .homeText h1 {
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .socialLinks {
+        gap: 18px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .sectionHeading {
+        margin-bottom: 40px;
+    }
+
+
+    .sectionHeading h2,
+    .toolsHeading h2 {
+        font-size: 34px;
+    }
+
+
+    .skillsGrid,
+    .experienceGrid,
+    .projectsGrid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .toolsGrid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+
+    .toolCard {
+        min-height: 150px;
+
+        padding: 25px 15px;
+    }
+
+
+    .toolCard i {
+        font-size: 42px;
+    }
+
+
+    .contactInfo h3 {
+        font-size: 30px;
+    }
+
+
+    footer {
+        padding: 30px 5%;
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   HIRE BUTTON
+========================================================= */
+
+.hireButton {
+    display: inline-block;
+
+    margin-top: 28px;
+
+    padding: 13px 30px;
+
+    border: 1px solid var(--accent);
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+
+.hireButton:hover {
+    background: var(--accent);
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.25);
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 24px;
+    }
+
+
+    .homeImage {
+        width: 220px;
+        height: 290px;
+    }
+
+
+    .homeText h1 {
+        font-size: 44px;
+    }
+
+
+    .toolsGrid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .toolCard {
+        min-height: 140px;
+    }
+
+
+    .skillCard,
+    .experienceCard,
+    .projectCard {
+        padding: 28px;
+    }
+
+}
